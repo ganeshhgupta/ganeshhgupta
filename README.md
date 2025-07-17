@@ -1,4 +1,4 @@
-# Hi, I'm [Your Name] 👋
+# Hi, I'm Ganesh.
 
 I'm a **Software Engineer** with **4+ years of experience** building scalable, production-grade systems, primarily in the **fintech** and **cloud-native** domains. I specialize in **Python**, **Java**, **React**, **SQL**, and **AWS**. I have a strong foundation in **full-stack development**, **workflow automation**, and **data engineering**, with a focus on **building systems that drive measurable business impact**.
 
