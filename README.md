@@ -24,6 +24,16 @@ Everleaf is an AI-native LaTeX editor built to simplify academic writing by auto
 
 ---
 
+### 🎥 **Event-Based Histogram of Gradients using Vision Transformers (ViT)**
+
+![ViT Project GIF](https://github.com/ganeshhgupta/ganeshhgupta/blob/main/raw/main/assets/evbc.gif)
+
+**Vision Transformers** have revolutionized the field of computer vision by applying the **self-attention** mechanism to image recognition tasks. This project aims to enhance **ViT's** performance by incorporating **HOG (Histogram of Oriented Gradients)** features, which are known for their ability to capture shape and appearance information through gradient distributions.
+
+**Thesis Link**: [Enhancing Vision Transformers with HOG Features](https://mavmatrix.uta.edu/cse_theses/527/)
+
+---
+
 ### [Employee Management with real-time Analytics: React, Node, PostgreSQL](https://employee-management-system-gzpb.vercel.app/)
 
 A web-based portal for managing employee data with secure login and full CRUD operations along with real-time Dashboard Analytics. Built with React, Node, PostgreSQL, it enhances operational efficiency and boosts user engagement by 25%.
