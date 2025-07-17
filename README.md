@@ -34,13 +34,7 @@ A fully-featured employee management system to handle employee records, roles, a
 - **Languages**: Python, Java, JavaScript (React), SQL
 - **Tech Stack**: React, Node.js, Express.js, MongoDB, PostgreSQL
 - **Cloud/DevOps**: AWS (Certified), Docker, Kubernetes, Terraform
-- **AI/Robotics**: Vision Transformers, Sensor Fusion, Event-based Cameras
-
----
-
-## 📈 GitHub Stats
-
-![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&count_private=true)
+- **AI/Robotics**: LLMs, Vision Transformers, Sensor Fusion, Event-based Cameras
 
 ---
 
