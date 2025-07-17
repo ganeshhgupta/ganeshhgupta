@@ -18,7 +18,7 @@ Here are a couple of my deployed projects:
 ### [Everleaf - Plant Management System](https://everleaf-app.vercel.app/)
 A simple and interactive plant management system where users can track their plants' growth, receive care reminders, and manage plant health. Built using **React** and **Firebase**.
 
-![Everleaf Screenshot](https://user-images.githubusercontent.com/ganeshhgupta/everleaf-screenshot.png)
+![Everleaf Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/raw/main/assets/everleaf-screenshot.png)
 
 ---
 
