@@ -15,19 +15,29 @@ Here are a couple of my deployed projects:
 
 ---
 
-### [Everleaf - AI-based LaTeX editor](https://everleaf-app.vercel.app/)
+### [Everleaf - AI-based LaTeX Editor](https://everleaf-app.vercel.app/)
 
-Everleaf is an AI-native LaTeX editor built to simplify academic writing by automating formatting, citations, and content editing.It features real-time LaTeX compilation, PDF preview, and mobile-friendly editing. The frontend is built with React and Tailwind CSS, while the backend uses Node.js and Express. For AI capabilities, it integrates Meta’s Llama 3.1 via Groq API for fast, context-aware language generation. Uploaded documents are processed using LlamaParse, and their embeddings are stored in Pinecone for vector-based retrieval. A RAG pipeline powers the research assistant, enabling users to ask questions or insert references from their own uploaded papers. A key technical focus was enabling surgical editing of LaTeX—modifying targeted sections without breaking document structure.
+Everleaf is an AI-native LaTeX editor built to simplify academic writing by automating formatting, citations, and content editing. It features real-time LaTeX compilation, PDF preview, and mobile-friendly editing. The frontend is built with **React** and **Tailwind CSS**, while the backend uses **Node.js** and **Express**. For AI capabilities, it integrates Meta’s **Llama 3.1** via **Groq API** for fast, context-aware language generation. Uploaded documents are processed using **LlamaParse**, and their embeddings are stored in **Pinecone** for vector-based retrieval. A **RAG pipeline** powers the research assistant, enabling users to ask questions or insert references from their own uploaded papers. A key technical focus was enabling surgical editing of LaTeX—modifying targeted sections without breaking document structure.
 
-![Everleaf Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/blob/main/raw/main/assets/everleaf-screenshot.png)
+![Everleaf Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/raw/main/assets/everleaf-screenshot.png)
 
 ---
 
-### [Employee Management with real-time Analytics: React, Node, PostgreSQL](https://employee-management-system-gzpb.vercel.app/)
+### [Employee Management with Real-time Analytics: React, Node, PostgreSQL](https://employee-management-system-gzpb.vercel.app/)
 
-A web-based portal for managing employee data with secure login and full CRUD operations along with real-time Dashboard Analytics. Built with React, Node, PostgreSQL, it enhances operational efficiency and boosts user engagement by 25%.
+A web-based portal for managing employee data with secure login and full CRUD operations along with real-time **Dashboard Analytics**. Built with **React**, **Node**, **PostgreSQL**, it enhances operational efficiency and boosts user engagement by **25%**.
 
-![Employee Management Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/blob/main/raw/main/assets/employee-management-system-screenshot.png)
+![Employee Management Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/raw/main/assets/employee-management-system-screenshot.png)
+
+---
+
+### 🎥 **Vision Transformers (ViT) Enhancement with HOG Features**
+
+![ViT Project GIF](https://github.com/ganeshhgupta/ganeshhgupta/raw/main/assets/evbc.gif)
+
+**Vision Transformers** have revolutionized the field of computer vision by applying the **self-attention** mechanism to image recognition tasks. This project aims to enhance **ViT's** performance by incorporating **HOG (Histogram of Oriented Gradients)** features, which are known for their ability to capture shape and appearance information through gradient distributions.
+
+**Thesis Link**: [Enhancing Vision Transformers with HOG Features](https://mavmatrix.uta.edu/cse_theses/527/)
 
 ---
 
