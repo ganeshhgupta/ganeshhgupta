@@ -27,7 +27,7 @@ Everleaf is an AI-native LaTeX editor built to simplify academic writing by auto
 
 A web-based portal for managing employee data with secure login and full CRUD operations along with real-time Dashboard Analytics. Built with React, Node, PostgreSQL, it enhances operational efficiency and boosts user engagement by 25%.
 
-![Employee Management Screenshot]([https://user-images.githubusercontent.com/ganeshhgupta/employee-management-system-screenshot.png](https://github.com/ganeshhgupta/ganeshhgupta/blob/main/raw/main/assets/employee-management-system-screenshot.png))
+![Employee Management Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/blob/main/raw/main/assets/employee-management-system-screenshot.png)
 
 ---
 
