@@ -16,9 +16,10 @@ Here are a couple of my deployed projects:
 ---
 
 ### [Everleaf - Plant Management System](https://everleaf-app.vercel.app/)
-A simple and interactive plant management system where users can track their plants' growth, receive care reminders, and manage plant health. Built using **React** and **Firebase**.
 
-![Everleaf Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/raw/main/assets/everleaf-screenshot.png)
+Everleaf is an AI-native LaTeX editor built to simplify academic writing by automating formatting, citations, and content editing.It features real-time LaTeX compilation, PDF preview, and mobile-friendly editing. The frontend is built with React and Tailwind CSS, while the backend uses Node.js and Express. For AI capabilities, it integrates Meta’s Llama 3.1 via Groq API for fast, context-aware language generation. Uploaded documents are processed using LlamaParse, and their embeddings are stored in Pinecone for vector-based retrieval. A RAG pipeline powers the research assistant, enabling users to ask questions or insert references from their own uploaded papers. A key technical focus was enabling surgical editing of LaTeX—modifying targeted sections without breaking document structure.
+
+![Everleaf Screenshot](https://github.com/ganeshhgupta/ganeshhgupta/blob/main/raw/main/assets/everleaf-screenshot.png)
 
 ---
 
