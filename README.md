@@ -32,6 +32,12 @@ Everleaf is an AI-native LaTeX editor built to simplify academic writing by auto
 
 **Thesis Link**: [Enhancing Vision Transformers with HOG Features](https://mavmatrix.uta.edu/cse_theses/527/)
 
+
+### Energy-Aware Multi-Agent Reinforcement Learning for Digital Twin Networks
+
+Developed a multi-agent deep RL system optimizing power allocation in wireless networks with digital twin technology. Implemented and benchmarked four MARL algorithms (VDN, MAPPO, MADDPG, adaptive scalarization) discovering on-policy methods achieve 18% energy savings while value decomposition fails with large action spaces. Scaled from 3 to 12 base stations proving 48% energy improvement (2.04 → 1.07 J/Mb) with linear throughput scaling across 12,000+ GPU hours. Addresses critical 5G/6G infrastructure energy consumption—work submitted to IEEE DySPAN 2026.
+
+
 ---
 
 ### [Employee Management with real-time Analytics: React, Node, PostgreSQL](https://employee-management-system-gzpb.vercel.app/)
