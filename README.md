@@ -51,6 +51,10 @@ The application includes an animated splash screen, responsive analytics dashboa
 A production ML pipeline for automated dental disease detection with monthly model retraining. Patient images flow through quality validation, real-time YOLOv8 inference on SageMaker, expert dentist annotation, and automated blue-green deployment -- all orchestrated end-to-end on AWS. The ingestion layer uses Lambda and S3 with a quality gate checking blur, brightness, contrast, and resolution before storing metadata in DynamoDB. Inference is served via a SageMaker YOLOv8 endpoint scaling from 1 to 10 instances, with results routed through SQS and SNS. Verified annotations feed a monthly Step Functions pipeline that validates data, augments class imbalances using Albumentations, trains for 50 epochs on `ml.g4dn.xlarge`, and deploys only when the new model achieves at least +2% mAP improvement over production. HIPAA-compliant with KMS encryption, VPC-only endpoints, and CloudTrail audit logging -- handling 10,000+ inferences per day at under 5s P99 latency.
 
 **Tech Stack:** AWS (SageMaker, Lambda, S3, DynamoDB, Step Functions, EventBridge, SQS, SNS, EC2, ALB, CloudWatch) -- YOLOv8 -- Albumentations -- FastAPI -- React -- Supabase -- Prisma ORM
+
+![MLRT Screenshot](https://github.com/ganeshhgupta/ML-Retraining-Pipeline/blob/main/MLRT.png)
+
+
 ```mermaid
 flowchart LR
 
