@@ -46,6 +46,79 @@ The application includes an animated splash screen, responsive analytics dashboa
 
 ---
 
+### [Dental AI -- Automated YOLOv8 ML Retraining Pipeline](https://github.com/ganeshhgupta/ML-Retraining-Pipeline)
+
+A production ML pipeline for automated dental disease detection with monthly model retraining. Patient images flow through quality validation, real-time YOLOv8 inference on SageMaker, expert dentist annotation, and automated blue-green deployment -- all orchestrated end-to-end on AWS. The ingestion layer uses Lambda and S3 with a quality gate checking blur, brightness, contrast, and resolution before storing metadata in DynamoDB. Inference is served via a SageMaker YOLOv8 endpoint scaling from 1 to 10 instances, with results routed through SQS and SNS. Verified annotations feed a monthly Step Functions pipeline that validates data, augments class imbalances using Albumentations, trains for 50 epochs on `ml.g4dn.xlarge`, and deploys only when the new model achieves at least +2% mAP improvement over production. HIPAA-compliant with KMS encryption, VPC-only endpoints, and CloudTrail audit logging -- handling 10,000+ inferences per day at under 5s P99 latency.
+
+**Tech Stack:** AWS (SageMaker, Lambda, S3, DynamoDB, Step Functions, EventBridge, SQS, SNS, EC2, ALB, CloudWatch) -- YOLOv8 -- Albumentations -- FastAPI -- React -- Supabase -- Prisma ORM
+```mermaid
+flowchart LR
+
+    subgraph EXT["Layer 1 -- External"]
+        SUP["Supabase\nImage Storage"]
+        PRIS["Prisma ORM\nApp DB"]
+        APIGW["API Gateway\nPOST /upload"]
+        SUP --> PRIS --> APIGW
+    end
+
+    subgraph ING["Layer 2 -- Ingestion and Quality"]
+        LING["Lambda\nImage Ingestion"]
+        S3["S3 Buckets\nraw / verified / augmented"]
+        LQUAL["Lambda\nQuality Gate"]
+        DDB["DynamoDB\nMetadata and State"]
+        LING --> S3 --> LQUAL -->|"Pass"| DDB
+    end
+
+    subgraph INF["Layer 3 -- Inference"]
+        SQS["SQS Queue\n+ Dead Letter Queue"]
+        LBATCH["Lambda\nBatch Processor"]
+        SM["SageMaker\nYOLOv8 Endpoint\n1 to 10 instances"]
+        SNS["SNS Topic\nPrediction Complete"]
+        SQS --> LBATCH --> SM --> SNS
+    end
+
+    subgraph ANN["Layer 4 -- Annotation"]
+        ALB["ALB\nLoad Balancer"]
+        EC2["EC2 App\nFastAPI + React"]
+        LVAL["Lambda\nValidator"]
+        SYNC["Supabase Sync\nUpdate JSON"]
+        ALB --> EC2 --> LVAL --> SYNC
+    end
+
+    subgraph RET["Layer 5 -- Monthly Retraining"]
+        EB["EventBridge\ncron 0 2 1 -- 2AM UTC"]
+        SF["Step Functions\n8-Step Workflow"]
+        S1["1. Validate\nMin 100 images"]
+        S2["2. Class Analysis\nImbalance check"]
+        S3B["3. Augment\nAlbumentations"]
+        S4["4. Train\nYOLOv8 50 epochs"]
+        S5["5. Evaluate\nmAP, Precision, Recall"]
+        S6["6. Compare\n+2% threshold"]
+        S7["7. Deploy\nBlue-green rollout"]
+        S8["8. Register\nS3 + Model Registry"]
+        EB --> SF --> S1 --> S2
+        S2 -->|"Imbalanced"| S3B --> S4
+        S2 -->|"Balanced"| S4
+        S4 --> S5 --> S6
+        S6 -->|"Improved"| S7 --> S8
+        S6 -->|"No change"| S8
+    end
+
+    subgraph MON["Layer 6 -- Monitoring"]
+        CW["CloudWatch\nAlarms"]
+        ALERT["SNS Alerts\nOps Team"]
+        CW --> ALERT
+    end
+
+    APIGW --> LING
+    DDB -->|"Verified images"| SQS
+    SNS --> ALB
+    SYNC --> DDB
+    DDB -->|"Monthly trigger"| EB
+    SM --> CW
+    SF --> CW
+```
+
 ### [Everleaf - AI-based LaTeX editor](https://everleaf-app.vercel.app/)
 
 Everleaf is an AI-native LaTeX editor built to simplify academic writing by automating formatting, citations, and content editing.It features real-time LaTeX compilation, PDF preview, and mobile-friendly editing. The frontend is built with React and Tailwind CSS, while the backend uses Node.js and Express. For AI capabilities, it integrates Meta’s Llama 3.1 via Groq API for fast, context-aware language generation. Uploaded documents are processed using LlamaParse, and their embeddings are stored in Pinecone for vector-based retrieval. A RAG pipeline powers the research assistant, enabling users to ask questions or insert references from their own uploaded papers. A key technical focus was enabling surgical editing of LaTeX—modifying targeted sections without breaking document structure.
