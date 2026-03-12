@@ -25,6 +25,27 @@ LangFetch is an AI-powered SQL Copilot that transforms natural language queries 
 
 ---
 
+### [FeatureLab - Autonomous ML Feature Engineering](https://featurelab-tan.vercel.app/)
+
+FeatureLab is an AI-powered feature engineering agent that autonomously transforms raw datasets into high-signal feature sets optimized for CTR prediction. The project demonstrates production-grade agentic AI with real-time streaming of agent reasoning, feature exploration, and evidence-based keep/discard decisions.
+
+The frontend is built with Next.js 16, React 18, and Tailwind CSS v4 to deliver a polished dark-mode dashboard, while the backend runs on FastAPI with an asynchronous agent loop. AI reasoning is powered by Google Gemini Flash using structured JSON outputs for transformation proposals and decision explanations.
+
+The system follows a five-stage agent cycle—Observe, Hypothesize, Execute, Evaluate, Decide. It profiles features, proposes transformations, applies them, and evaluates signal using Mutual Information, Information Value, AUC, and LightGBM feature importance. Only features exceeding a 2% signal improvement threshold are retained.
+
+Feature metadata is indexed in Pinecone’s vector database to enable cross-experiment intelligence retrieval, while Neon PostgreSQL provides persistent storage for experiments and feature artifacts. A key architectural component is the SSE streaming pipeline, which exposes the agent’s reasoning in real time by displaying each hypothesis, action, result, and decision.
+
+The application includes an animated splash screen, responsive analytics dashboard, and is deployed in production on Vercel (frontend) and Render (backend).
+
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/ganeshhgupta/ganeshhgupta/main/raw/main/assets/FL1.jpeg" width="480"/></td>
+    <td><img src="https://raw.githubusercontent.com/ganeshhgupta/ganeshhgupta/main/raw/main/assets/FL2.jpeg" width="480"/></td>
+  </tr>
+</table>
+
+---
+
 ### [Everleaf - AI-based LaTeX editor](https://everleaf-app.vercel.app/)
 
 Everleaf is an AI-native LaTeX editor built to simplify academic writing by automating formatting, citations, and content editing.It features real-time LaTeX compilation, PDF preview, and mobile-friendly editing. The frontend is built with React and Tailwind CSS, while the backend uses Node.js and Express. For AI capabilities, it integrates Meta’s Llama 3.1 via Groq API for fast, context-aware language generation. Uploaded documents are processed using LlamaParse, and their embeddings are stored in Pinecone for vector-based retrieval. A RAG pipeline powers the research assistant, enabling users to ask questions or insert references from their own uploaded papers. A key technical focus was enabling surgical editing of LaTeX—modifying targeted sections without breaking document structure.
