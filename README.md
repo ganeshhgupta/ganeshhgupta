@@ -18,35 +18,24 @@ Here are a couple of my deployed projects:
 
 (still in progress)
 
-*can a language model have an original thought?*
+can a language model have an original thought?
 
 not retrieve one. not recombine one. actually have one.
 
 this is an attempt to find out.
 
----
-
-## the problem
 
 when a mathematician arrives at a novel result, they don't retrieve it. they identify the exact assumption in an existing proof that is doing the most work. they ask what happens if that assumption is relaxed. they notice structural parallels to problems in completely different domains. they follow chains of reasoning through temporarily unintuitive territory before judging whether the chain leads somewhere valid. the discovery emerges from the search process, not from memory.
 
 current LLMs don't do this. they're trained to predict the next token, which means their implicit evaluation signal is distributional similarity. novel ideas score low on this measure. the model's prior is the training distribution. its critic is the training distribution. its generator is the training distribution. the whole system optimizes for familiarity, not truth.
 
-`original-thought` builds an external scaffold that forces a language model to approximate the human reasoning process rather than the retrieval process. then we run it on a real open mathematical problem and see what happens.
-
----
-
-## the experiment
+original-thought builds an external scaffold that forces a language model to approximate the human reasoning process rather than the retrieval process. then we run it on a real open mathematical problem and see what happens.
 
 take a mathematical question at the frontier of transformer expressivity theory. curate a corpus of ~50 papers that are necessary precursors to the answer but don't contain the answer. run the system. compare the output to the actual result (evaluated externally, by hand, after the session). measure not just whether it got there but whether the search process resembled how a human would get there.
 
 the system doesn't know a correct answer exists. it thinks it's working on an open problem. because as far as it knows, it is.
 
----
 
-## architecture
-
-```
 ┌────────────────────────────────────────────────────────────┐
 │                     session loop                           │
 │                                                            │
@@ -74,31 +63,6 @@ the system doesn't know a correct answer exists. it thinks it's working on an op
 │  2. critic novelty rate < 10%                              │
 │  3. zero new lean obligations discharged × 5 rounds        │
 └────────────────────────────────────────────────────────────┘
-```
-
-when 2 of 3 signals fire, the redirect protocol runs:
-- **soft:** force constraint relaxation on the most load-bearing assumption
-- **medium:** inject a cross-domain analogy from the analogy agent
-- **hard:** archive the branch, start fresh with a new thompson-sampled framing
-
----
-
-## design decisions
-
-**12 free steps before any critic.** a chain that looks wrong at step 3 may be correct at step 12. don't kill ideas too early.
-
-**four structurally independent critics.** Qwen3 (adversarial), Qwen3 (devil's advocate), Lean 4 (formal), DeepSeek-Prover (neural proof). when all four agree, strong signal. when they disagree, the disagreement is informative.
-
-**explicit constraint relaxation.** every assumption the generator treats as load-bearing gets three variants: weakened, negated, replaced. this is the mechanism that produced non-euclidean geometry, special relativity, and most other major discoveries. it should be operationalized, not left implicit.
-
-**analogy agent queries by abstract structure, not topic names.** it finds structurally isomorphic problems in different domains without encoding any knowledge of the target result.
-
-**persistent failure memory.** every failed proof attempt goes into sqlite with a structured taxonomy. at session start, the most relevant past failures get retrieved by embedding similarity and injected into context. salience decays at 0.8x per session so recent failures matter more.
-
-**thompson sampling over framing variants.** five framings: `limitation`, `technique`, `analogy`, `assumption`, `compression`. priors update based on lean obligations discharged. never based on semantic proximity to the target.
-
-**DPP corpus ordering.** maximizes `det(K_S)` over the paper subset at session start. papers associated with `contradicts_corpus` failures get their quality weight lowered.
-
 
 ---
 
