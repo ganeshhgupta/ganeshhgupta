@@ -35,7 +35,7 @@ take a mathematical question at the frontier of transformer expressivity theory.
 
 the system doesn't know a correct answer exists. it thinks it's working on an open problem. because as far as it knows, it is.
 
-
+```
 ┌────────────────────────────────────────────────────────────┐
 │                     session loop                           │
 │                                                            │
@@ -63,7 +63,7 @@ the system doesn't know a correct answer exists. it thinks it's working on an op
 │  2. critic novelty rate < 10%                              │
 │  3. zero new lean obligations discharged × 5 rounds        │
 └────────────────────────────────────────────────────────────┘
-
+```
 ---
 
 ### [LangFetch - AI SQL Copilot](https://langfetch-mvp.vercel.app/)
